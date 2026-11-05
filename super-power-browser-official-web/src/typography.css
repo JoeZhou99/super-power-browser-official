@@ -1,0 +1,280 @@
+/* Public-site reading scale. Keep the miniature browser UI at illustration scale. */
+:root {
+  --type-section: 36px;
+  --type-lead: 18px;
+  --type-body: 16px;
+  --type-meta: 14px;
+  --type-small: 12px;
+}
+
+.main-nav a, .nav-download { font-size: var(--type-body); }
+.button, .button.large, .text-button, .text-button.centered { font-size: var(--type-body); }
+.button.small { font-size: 15px; min-height: 42px; }
+.button { min-height: 48px; }
+.eyebrow, .faq-heading .eyebrow, .contact-copy .eyebrow { font-size: var(--type-small); line-height: 1.6; }
+.hero-badge, .hero-notes { font-size: var(--type-meta); }
+.hero-description { font-size: var(--type-lead); line-height: 1.85; }
+.hero-notes { flex-wrap: wrap; row-gap: 10px; }
+.hero-notes svg { width: 16px; height: 16px; }
+.float-card b { font-size: var(--type-meta); }
+.float-card small, .mini-tag { font-size: var(--type-small); }
+.platform-section > p { font-size: var(--type-lead); }
+.platform-section > small { font-size: var(--type-small); }
+.more-platforms { font-size: var(--type-meta); }
+
+.section-heading h2 { font-size: var(--type-section); line-height: 1.5; }
+.section-heading p { font-size: var(--type-lead); line-height: 1.8; }
+.section-heading.align-left { gap: 32px; }
+.section-heading.align-left > p { font-size: var(--type-body); flex-shrink: 0; }
+.feature-tabs button { font-size: var(--type-lead); }
+.feature-copy { padding-block: 40px; }
+.feature-copy h3 { font-size: 28px; line-height: 1.5; }
+.feature-copy > p { font-size: var(--type-lead); line-height: 1.85; }
+.feature-copy li { font-size: var(--type-body); line-height: 1.8; align-items: flex-start; }
+.feature-copy li svg { margin-top: 6px; }
+.feature-copy .text-button { font-size: var(--type-body); }
+.feature-number span { font-size: var(--type-small); }
+.feature-visual-label { font-size: var(--type-meta); }
+.core-card h3, .core-wide h3 { font-size: 22px; line-height: 1.5; }
+.core-large h3 { font-size: 26px; }
+.core-card p, .core-wide p { font-size: var(--type-body); line-height: 1.85; }
+.core-wide { flex-wrap: wrap; }
+.core-wide > div:not(.security-label) { flex: 1; min-width: 200px; }
+.core-wide .security-label { display: none; }
+.env-tile { font-size: var(--type-small); }
+.env-tile small, .card-bottom-label { font-size: 11px; }
+.network-mini, .member-mini small { font-size: var(--type-small); }
+.member-mini { flex-wrap: wrap; row-gap: 8px; }
+
+.ai-copy h2 { font-size: 40px; }
+.ai-copy > p { font-size: var(--type-lead); line-height: 1.85; }
+.ai-capabilities b { font-size: var(--type-body); line-height: 1.6; }
+.ai-capabilities small { font-size: var(--type-meta); line-height: 1.75; margin-top: 4px; }
+.ai-copy .text-button { font-size: var(--type-body); }
+.ai-copy .ai-availability { font-size: var(--type-meta); line-height: 1.7; align-items: flex-start; }
+.ai-availability > span { flex-shrink: 0; margin-top: 9px; }
+.ai-window-title { font-size: var(--type-body); }
+.ai-window-title .demo-tag { font-size: var(--type-small); }
+.user-bubble { font-size: 15px; }
+.assistant-message b { font-size: var(--type-meta); }
+.assistant-message p { font-size: 13px; line-height: 1.8; }
+.task-plan > div { font-size: var(--type-meta); }
+.task-plan .step-indicator { flex-shrink: 0; }
+.task-plan small { font-size: 11px; }
+.ai-file b { font-size: 13px; line-height: 1.7; }
+.ai-file small { font-size: var(--type-small); line-height: 1.7; }
+.ai-file > span { flex-shrink: 0; }
+.ai-input { font-size: var(--type-meta); }
+.ai-models { font-size: var(--type-small); flex-wrap: wrap; row-gap: 8px; }
+.ai-models > span { font-size: var(--type-small); }
+.steps-grid h3 { font-size: 22px; }
+.steps-grid p { font-size: var(--type-body); line-height: 1.85; }
+
+.faq-heading h2 { font-size: var(--type-section); }
+.faq-heading p { font-size: var(--type-lead); line-height: 1.8; }
+.faq-heading .text-button { font-size: var(--type-body); }
+.faq-item h3 button { font-size: 20px; line-height: 1.65; gap: 22px; }
+.faq-item h3 button > span { flex-shrink: 0; }
+.faq-answer { font-size: var(--type-body); line-height: 1.9; }
+
+.contact-copy h2 { font-size: var(--type-section); line-height: 1.5; }
+.contact-copy p { font-size: var(--type-lead); line-height: 1.8; }
+.contact-actions .button { font-size: var(--type-body); }
+.contact-card { min-width: 380px; }
+.contact-card-heading h3 { font-size: 20px; }
+.contact-card-heading p { font-size: var(--type-meta); line-height: 1.7; }
+.wechat-number { display: flex; flex-wrap: wrap; column-gap: 20px; row-gap: 8px; }
+.wechat-number > span { flex-basis: 100%; font-size: var(--type-meta); }
+.wechat-number > b { font-size: 28px; }
+.wechat-number > .text-button { font-size: var(--type-meta); margin-left: auto; }
+.contact-placeholder { font-size: var(--type-meta); gap: 10px 20px; }
+.footer-about > p, .footer-links, .footer-links button { font-size: var(--type-meta); line-height: 1.9; }
+.footer-links h3 { font-size: var(--type-body); }
+.footer-bottom, .footer-bottom button { font-size: var(--type-small); }
+.footer-tag { font-size: 10px; }
+.floating-support button span { font-size: var(--type-small); }
+
+.help-hero h1 { font-size: 44px; }
+.help-hero p { font-size: var(--type-lead); }
+.help-search input { font-size: var(--type-body); min-height: 32px; }
+.help-search > span, .hot-search, .hot-search button { font-size: var(--type-meta); }
+.help-intro h2 { font-size: 28px; }
+.help-intro p { font-size: var(--type-body); line-height: 1.8; }
+.guide-card h3 { font-size: 20px; }
+.guide-card p { font-size: 15px; line-height: 1.8; min-height: 54px; max-width: none; }
+.guide-link { font-size: var(--type-meta); }
+.guide-detail h3 { font-size: 22px; }
+.guide-detail ol { font-size: var(--type-body); line-height: 1.85; }
+.faq-categories > button { font-size: var(--type-body); }
+.category-contact > b { font-size: var(--type-body); }
+.category-contact p, .category-contact .text-button { font-size: var(--type-meta); }
+.results-heading h3 { font-size: var(--type-lead); line-height: 1.6; }
+.results-heading > span, .results-heading .text-button { font-size: var(--type-meta); }
+.help-faq-item summary { font-size: var(--type-lead); line-height: 1.75; }
+.help-faq-item p { font-size: var(--type-body); line-height: 1.9; }
+.empty-state h3 { font-size: 20px; }
+.empty-state p { font-size: var(--type-body); }
+.help-download h3 { font-size: 22px; }
+.help-download p { font-size: var(--type-body); line-height: 1.8; }
+.help-download > .button { font-size: var(--type-body); }
+
+.dialog-header > .eyebrow, .register-form > .eyebrow { font-size: 11px; }
+.dialog-header h2, .register-form h2 { font-size: 28px; }
+.dialog-header p, .dialog-intro { font-size: var(--type-body); line-height: 1.8; }
+.register-art > .eyebrow, .register-art > p { font-size: var(--type-small); }
+.register-art h2 { font-size: 26px; }
+.field { font-size: var(--type-meta); gap: 8px; }
+.field input { font-size: 16px; height: 50px; padding-inline: 12px; }
+.password-field input { padding-right: 44px; }
+.password-field > .icon-button { top: 7px; }
+.availability-note { font-size: 13px; line-height: 1.75; }
+.consent { font-size: 13px; line-height: 1.8; gap: 4px; }
+.consent input { width: 16px; height: 16px; }
+.consent button { font-size: 13px; }
+.form-footnote, .form-footnote button { font-size: 13px; line-height: 1.8; }
+.form-error { font-size: var(--type-meta); line-height: 1.75; }
+.success-panel p { font-size: var(--type-body); }
+.download-platforms b { font-size: var(--type-lead); }
+.download-platforms small { font-size: var(--type-meta); }
+.release-state { font-size: 13px; }
+.download-panel h3 { font-size: 22px; }
+.download-panel p { font-size: 15px; line-height: 1.85; }
+.download-panel .button { font-size: var(--type-body); }
+.download-panel .text-button { font-size: var(--type-meta); }
+.download-note { font-size: 13px; line-height: 1.8; }
+.checksum { font-size: var(--type-small); }
+.wechat-contact { flex-wrap: wrap; }
+.wechat-contact small { font-size: var(--type-meta); }
+.wechat-contact strong { font-size: 26px; }
+.wechat-contact .button { font-size: var(--type-meta); min-height: 42px; }
+.contact-hint, .other-contact { font-size: var(--type-meta); line-height: 1.8; }
+.legal-content h3 { font-size: var(--type-lead); }
+.legal-content p { font-size: 15px; line-height: 1.95; }
+.toast-message { font-size: var(--type-meta); }
+
+@media (max-width: 1150px) {
+  .section-heading.align-left { flex-wrap: wrap; gap: 10px; }
+  .feature-tabs { gap: 12px; }
+  .ai-layout { gap: 32px; }
+  .contact-section > .container { gap: 30px; }
+  .contact-copy h2 { font-size: 32px; }
+  .contact-copy .eyebrow { max-width: 100%; letter-spacing: 1px; }
+}
+
+@media (max-width: 900px) {
+  :root { --type-section: 32px; }
+  .feature-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+  .feature-tabs button { justify-content: center; }
+  .feature-copy h3 { font-size: 26px; }
+  .ai-layout { grid-template-columns: 1fr; gap: 38px; }
+  .ai-copy > p { max-width: 620px; }
+  .ai-demo { max-width: 560px; width: 100%; margin: auto; }
+  .faq-layout { grid-template-columns: 1fr; gap: 28px; }
+  .faq-heading h2 br { display: none; }
+  .faq-decoration { display: none; }
+  .faq-list { padding-left: 0; }
+  .contact-section > .container { display: flex; flex-direction: column; align-items: stretch; }
+  .contact-copy h2 { max-width: none; }
+  .contact-card { min-width: 0; }
+  .contact-card-heading { gap: 14px; }
+  .contact-actions .button { min-height: 48px; }
+  .help-download { flex-wrap: wrap; }
+  .help-download > .button { margin-left: 65px; }
+  .register-form { padding-inline: 26px; }
+  .register-form h2 { font-size: 25px; }
+  .field input::placeholder { font-size: 14px; }
+}
+
+@media (max-width: 650px) {
+  :root { --type-section: 28px; --type-lead: 16px; }
+  .eyebrow, .faq-heading .eyebrow, .contact-copy .eyebrow { font-size: 11px; letter-spacing: 1px; }
+  .nav-actions .button { font-size: 14px; min-height: 38px; padding-inline: 12px; }
+  .main-nav a { font-size: 16px; }
+  .hero-badge { font-size: 13px; }
+  .hero-description { max-width: 400px; line-height: 1.85; }
+  .hero-actions .button { font-size: 16px; min-height: 48px; padding-inline: 20px; }
+  .hero-notes { font-size: 12px; gap: 8px 14px; }
+  .hero-notes svg { width: 13px; height: 13px; }
+  .float-card { max-width: 90%; padding: 9px 10px; }
+  .float-card b { font-size: 12px; }
+  .float-card small { font-size: 11px; }
+  .float-card .mini-tag { display: none; }
+  .platform-section > p { font-size: 16px; }
+  .platform-section > small { display: block; font-size: 12px; line-height: 1.8; }
+  .more-platforms { font-size: 12px; white-space: normal; }
+  .feature-tabs button { font-size: clamp(14px, 3.8vw, 16px); padding: 12px 8px; }
+  .feature-copy { padding: 26px 24px; }
+  .feature-copy h3 { font-size: 24px; }
+  .feature-copy li { font-size: 16px; }
+  .feature-visual-label { font-size: 13px; }
+  .core-card h3, .core-wide h3 { font-size: 21px; }
+  .core-large h3 { font-size: 24px; }
+  .ai-copy h2 { font-size: 32px; }
+  .ai-copy .ai-availability { font-size: 14px; }
+  .ai-chat { padding-inline: 17px; }
+  .task-plan, .ai-file { margin-left: 0; }
+  .ai-window-title { gap: 10px; padding-inline: 17px; }
+  .ai-window-title .demo-tag { font-size: 11px; }
+  .ai-models > span { flex-basis: 100%; }
+  .steps-grid h3 { font-size: 20px; }
+  .steps-grid p { padding-right: 0; }
+  .steps-grid article > svg { display: none; }
+  .faq-item h3 button { font-size: 18px; gap: 14px; }
+  .faq-answer { padding-right: 0; }
+  .contact-copy h2 { font-size: 28px; }
+  .contact-actions { flex-wrap: wrap; }
+  .contact-actions .button { font-size: 16px; padding-inline: 20px; }
+  .contact-card { padding: 23px 20px; }
+  .contact-card-heading p { font-size: 13px; }
+  .contact-placeholder { font-size: 14px; }
+  .footer-about > p, .footer-links, .footer-links button { font-size: 14px; }
+  .footer-links h3 { font-size: 16px; }
+  .footer-bottom > div { flex-wrap: wrap; gap: 10px; }
+  .footer-tag { font-size: 10px; }
+  .help-hero h1 { font-size: 32px; }
+  .help-search input { font-size: 16px; }
+  .hot-search, .hot-search button { font-size: 14px; }
+  .hot-search { flex-wrap: wrap; }
+  .help-intro h2 { font-size: 24px; }
+  .guide-card { padding: 20px 16px; }
+  .guide-card h3 { font-size: 18px; }
+  .guide-card p { font-size: 14px; min-height: 76px; }
+  .guide-link { font-size: 14px; }
+  .guide-detail h3 { font-size: 20px; }
+  .faq-categories > button { font-size: 14px; padding: 9px 12px; }
+  .results-heading { flex-wrap: wrap; }
+  .results-heading h3 { font-size: 18px; }
+  .results-heading > span, .results-heading .text-button { font-size: 14px; }
+  .help-faq-item summary { font-size: 18px; }
+  .help-faq-item p { padding-right: 0; }
+  .help-download h3 { font-size: 20px; }
+  .help-download p { font-size: 15px; max-width: none; }
+  .help-download > div { flex: 1; min-width: 160px; }
+  .help-download > .button { font-size: 16px; min-height: 46px; margin-left: 0; }
+  .dialog-header h2, .register-form h2 { font-size: 24px; }
+  .dialog-header > .eyebrow, .register-form > .eyebrow { font-size: 11px; letter-spacing: 1px; }
+  .register-form { padding: 40px 24px 28px; }
+  .availability-note { align-items: flex-start; }
+  .status-dot { margin-top: 9px; }
+  .download-platforms b { font-size: 16px; }
+  .download-platforms small { font-size: 13px; }
+  .download-panel h3 { font-size: 20px; }
+  .download-panel p { font-size: 15px; }
+  .download-panel .text-button { font-size: 14px; }
+  .download-note { align-items: flex-start; }
+  .download-note svg { margin-top: 4px; }
+  .wechat-contact strong { font-size: 24px; }
+  .wechat-contact small { font-size: 14px; }
+  .wechat-contact .button { font-size: 14px; min-height: 40px; margin-left: 0; }
+  .legal-content h3 { font-size: 18px; }
+  .legal-content p { font-size: 15px; }
+}
+
+@media (max-width: 380px) {
+  .guide-grid { grid-template-columns: 1fr; }
+  .guide-card p { min-height: 0; }
+  .hero-actions .button { padding-inline: 16px; }
+  .nav-actions { gap: 7px; }
+  .nav-actions .button { font-size: 13px; padding-inline: 10px; }
+  .contact-actions .button { padding-inline: 16px; }
+}

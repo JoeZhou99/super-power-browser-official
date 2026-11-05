@@ -1,0 +1,31 @@
+server:
+  address: ${BIND_ADDRESS:127.0.0.1}
+  port: ${PORT:18081}
+  forward-headers-strategy: native
+  tomcat:
+    remoteip:
+      internal-proxies: '127\.0\.0\.1|::1|0:0:0:0:0:0:0:1'
+  error:
+    include-message: never
+    include-stacktrace: never
+spring:
+  application:
+    name: super-power-browser-official-server
+  datasource:
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/super_power_browser?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    username: ${DB_USER:superpower_official}
+    password: ${DB_PASSWORD:}
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 5000
+  sql:
+    init:
+      mode: never
+app:
+  registration-enabled: ${REGISTRATION_ENABLED:false}
+  rate-limit:
+    per-address: ${REGISTER_ATTEMPTS_PER_15_MINUTES:10}
+    global-per-minute: ${REGISTER_ATTEMPTS_PER_MINUTE:60}
+logging:
+  level:
+    root: INFO

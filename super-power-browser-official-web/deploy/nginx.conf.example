@@ -1,0 +1,42 @@
+# Place limit_req_zone in the http {} block.
+limit_req_zone $binary_remote_addr zone=official_registration:10m rate=6r/m;
+
+server {
+    listen 443 ssl;
+    server_name REPLACE_WITH_YOUR_DOMAIN;
+    ssl_certificate /path/to/fullchain.pem;
+    ssl_certificate_key /path/to/privkey.pem;
+    root /srv/super-power-browser-official/super-power-browser-official-web/dist;
+    index index.html;
+    client_max_body_size 8k;
+
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
+    add_header X-Frame-Options DENY always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" always;
+
+    location = /api/auth/register {
+        limit_req zone=official_registration burst=4 nodelay;
+        limit_req_status 429;
+        proxy_pass http://127.0.0.1:18081;
+        proxy_set_header Host $host;
+        # Overwrite the client header; never append untrusted forwarded addresses.
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+    location = /api/auth/registration-status {
+        proxy_pass http://127.0.0.1:18081;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+    }
+    location /api/ { return 404; }
+    location = /site-config.json { expires -1; }
+    location /assets/ { expires 1y; try_files $uri =404; }
+    location / { try_files $uri $uri/ /index.html; }
+}
+
+server {
+    listen 80;
+    server_name REPLACE_WITH_YOUR_DOMAIN;
+    return 301 https://$host$request_uri;
+}

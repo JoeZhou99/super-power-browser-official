@@ -1,0 +1,8 @@
+{
+  "wechat": "15675826196",
+  "phone": "",
+  "email": "",
+  "registrationEndpoint": "/api/auth/register",
+  "windows": { "url": "", "version": "", "size": "", "publishedAt": "", "sha256": "" },
+  "icp": ""
+}
