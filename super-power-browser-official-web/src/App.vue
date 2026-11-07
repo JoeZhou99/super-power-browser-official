@@ -3,9 +3,10 @@ import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import Icon from './components/Icon.vue'
 import ProductPreview from './components/ProductPreview.vue'
 import SiteModal from './components/SiteModal.vue'
+import AIPage from './components/AIPage.vue'
 import { features, faqs, guides } from './content.js'
 
-const page = ref(location.hash.startsWith('#/help') ? 'help' : 'home')
+const page = ref(location.hash.startsWith('#/help') ? 'help' : location.hash.startsWith('#/ai') ? 'ai' : 'home')
 const modal = ref(''), menuOpen = ref(false), activeFeature = ref(0), query = ref(''), category = ref('全部问题')
 const openFaq = ref(0), guideIndex = ref(null), toast = ref('')
 const config = ref({ wechat: '15675826196', email: '', phone: '', registrationEndpoint: '', windows: {}, icp: '' })
@@ -15,14 +16,14 @@ let toastTimer
 async function moveFeature(index) { activeFeature.value = (index + features.length) % features.length; await nextTick(); document.getElementById(`feature-tab-${activeFeature.value}`)?.focus() }
 function open(kind) { modal.value = kind; menuOpen.value = false }
 function route() {
-  const nextPage = location.hash.startsWith('#/help') ? 'help' : 'home'
+  const nextPage = location.hash.startsWith('#/help') ? 'help' : location.hash.startsWith('#/ai') ? 'ai' : 'home'
   page.value = nextPage; menuOpen.value = false; guideIndex.value = null
-  document.title = nextPage === 'help' ? '帮助与支持 · SuperPower Browser' : 'SuperPower Browser · 让每一份业务，都有独立的空间'
+  document.title = nextPage === 'help' ? '帮助与支持 · SuperPower Browser' : nextPage === 'ai' ? 'AI 工作台 · SuperPower Browser' : 'SuperPower Browser · 让每一份业务，都有独立的空间'
   nextTick(() => { window.scrollTo({ top: 0, behavior: 'instant' }); document.getElementById('page-title')?.focus({ preventScroll: true }) })
 }
 function navigate(destination) {
   if (page.value === destination) { menuOpen.value = false; window.scrollTo({ top: 0, behavior: 'smooth' }) }
-  else location.hash = destination === 'help' ? '/help' : '/'
+  else location.hash = destination === 'help' ? '/help' : destination === 'ai' ? '/ai' : '/'
 }
 async function scrollToSection(id) {
   if (page.value !== 'home') { location.hash = '/'; await nextTick(); setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 50) }
@@ -50,7 +51,7 @@ onBeforeUnmount(() => { window.removeEventListener('hashchange', route); clearTi
 <template>
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="site-header"><div class="nav-shell"><a href="#/" class="brand" aria-label="SuperPower Browser 首页" @click.prevent="navigate('home')"><img src="/brand.svg" alt="" /><span>SuperPower<small>BROWSER</small></span></a>
-    <nav class="main-nav" :class="{ 'is-open': menuOpen }" aria-label="主导航"><a href="#/" :class="{ active: page === 'home' }" :aria-current="page === 'home' ? 'page' : undefined" @click.prevent="navigate('home')">首页</a><a href="#/help" :class="{ active: page === 'help' }" :aria-current="page === 'help' ? 'page' : undefined" @click.prevent="navigate('help')">帮助与支持</a></nav>
+    <nav class="main-nav" :class="{ 'is-open': menuOpen }" aria-label="主导航"><a href="#/" :class="{ active: page === 'home' }" :aria-current="page === 'home' ? 'page' : undefined" @click.prevent="navigate('home')">首页</a><a href="#/ai" :class="{ active: page === 'ai' }" :aria-current="page === 'ai' ? 'page' : undefined" @click.prevent="navigate('ai')">AI 工作台</a><a href="#/help" :class="{ active: page === 'help' }" :aria-current="page === 'help' ? 'page' : undefined" @click.prevent="navigate('help')">帮助与支持</a></nav>
     <div class="nav-actions"><button class="nav-download" @click="open('download')"><Icon name="download" :size="17" /><span>下载客户端</span></button><button class="button primary small" @click="open('register')">立即注册<Icon name="arrow" :size="16" /></button><button class="icon-button mobile-menu" :aria-expanded="menuOpen" aria-label="展开或收起导航" @click="menuOpen = !menuOpen"><Icon :name="menuOpen ? 'close' : 'menu'" /></button></div>
   </div></header>
 
@@ -71,6 +72,10 @@ onBeforeUnmount(() => { window.removeEventListener('hashchange', route); clearTi
       <section class="section start-section"><div class="container"><div class="section-heading"><span class="eyebrow">GET STARTED, STAY FOCUSED</span><h2>从第一个环境，开始更有序的运营</h2><p>简单几步，建立属于你和团队的工作空间。</p></div><div class="steps-grid"><article v-for="(step, i) in [['注册账号','创建账号，为团队准备统一的管理入口。','users'],['配置环境','添加店铺与代理，为账号配置独立环境。','settings'],['开始工作','打开店铺，按需邀请成员并分配访问权限。','globe']]" :key="step[0]"><span class="step-number">0{{ i + 1 }}</span><span class="step-line"></span><Icon :name="step[2]" :size="27" /><h3>{{ step[0] }}</h3><p>{{ step[1] }}</p></article></div><button class="text-button centered" @click="navigate('help')">查看新手入门指南 <Icon name="arrow" :size="17" /></button></div></section>
 
       <section class="section faq-home"><div class="container faq-layout"><div class="faq-heading"><span class="eyebrow">A LITTLE MORE CLARITY</span><h2>你关心的，<br />这里有答案。</h2><p>快速了解产品、环境与团队协作。</p><button class="text-button" @click="navigate('help')">更多帮助与支持 <Icon name="arrow" :size="17" /></button><div class="faq-decoration" aria-hidden="true">?</div></div><div class="faq-list"><article v-for="(faq, i) in [faqs[0], faqs[1], faqs[3], faqs[5], faqs[6]]" :key="faq.q" class="faq-item" :class="{ expanded: openFaq === i }"><h3><button :aria-expanded="openFaq === i" :aria-controls="`home-faq-${i}`" @click="openFaq = openFaq === i ? -1 : i">{{ faq.q }}<span>{{ openFaq === i ? '−' : '+' }}</span></button></h3><div :id="`home-faq-${i}`" v-show="openFaq === i" class="faq-answer">{{ faq.a }}</div></article></div></div></section>
+    </template>
+
+    <template v-else-if="page === 'ai'">
+      <AIPage @register="open('register')" @download="open('download')" @contact="open('contact')" />
     </template>
 
     <template v-else>
